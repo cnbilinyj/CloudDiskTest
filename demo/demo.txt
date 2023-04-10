@@ -1,9 +1,0 @@
-navigator.getBattery().then(function(battery) {
-    // 获取初始电池状态 updateBatteryStatus(battery); // 添加事件监听器以检测电源状态更改
-    battery.addEventListener('chargingchange', function() {
-        updateBatteryStatus(battery); 
-    });
-});
-function updateBatteryStatus(battery) {
-    console.log("Battery charging: " + (battery.charging ? "charging" : "not charging"));
-}
