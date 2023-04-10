@@ -1,5 +1,0 @@
-app.startActivity({ 
-    className: "org.autojs.autojs.ui.edit.EditActivity_", 
-    data:"file:///sdcard/脚本/1.js", 
-    packageName: "org.autojs.autojspro", 
-});
