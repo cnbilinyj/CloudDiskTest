@@ -1,0 +1,48 @@
+var increaseW = floaty.window(
+    <vertical>
+        <frame>
+            <button id="increaseE" text="+" bg="#66ffffff" w="20" h="20" padding="0"/>
+        </frame>
+    </vertical>
+);
+var decreaseW = floaty.window(
+    <vertical>
+        <button id="decreaseE" text="-" bg="#66ffffff" w="20" h="20" padding="0"/>
+    </vertical>
+);
+var closeW = floaty.window(
+    <horizontal>
+        <button id="minimizeE" text="-" bg="#66ffffff" w="20" h="20" padding="0" marginRight="10"/>
+        <button id="closeE" text="×" bg="#66ffffff" w="20" h="20" padding="0"/>
+    </horizontal>
+);
+function a1(){
+    toast("最小化按钮将会使悬浮窗消失三秒")
+    increaseW.setPosition(-200,-200)
+    decreaseW.setPosition(-200,-200)
+    closeW.setPosition(-200,-200)
+    setTimeout(() => {
+        increaseW.setPosition(device.width - 80,400)
+        decreaseW.setPosition(device.width - 80,600)
+        closeW.setPosition(device.width - 170,860)
+    },3000)
+}
+increaseW.setPosition(device.width - 80,400)
+decreaseW.setPosition(device.width - 80,600)
+closeW.setPosition(device.width - 170,860)
+increaseW.increaseE.on("click",() => {
+    device.setMusicVolume(device.getMusicVolume() + 1)
+    log(device.getMusicVolume())
+})
+decreaseW.decreaseE.on("click",() => {
+    device.setMusicVolume(device.getMusicVolume() - 1)
+    log(device.getMusicVolume())
+})
+closeW.closeE.click(function(){
+    toast("程序已正常退出，欢迎再次使用");
+    exit();
+})
+closeW.minimizeE.click(function(){
+    a1()
+})        
+setTimeout(() => {},3600000)
